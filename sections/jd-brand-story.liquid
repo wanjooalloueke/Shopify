@@ -1,6 +1,6 @@
 {%- liquid
   if section.settings.image != blank
-    assign story_image = section.settings.image | image_url: width: 1400
+    assign story_image = section.settings.image | image_url: width: 600
   else
     assign story_image = 'jd-hero.png' | asset_url
   endif
@@ -9,7 +9,7 @@
 <section class="section-spacing">
   <div class="page-width brand-story">
     <div class="brand-story__visual">
-      <img src="{{ story_image }}" alt="{{ section.settings.image_alt | escape }}" loading="lazy" width="600" height="860">
+      <img src="{{ story_image }}" alt="{{ section.settings.image_alt | escape }}" loading="lazy" width="500" height="730">
       <div class="brand-story__panel">
         <strong>{{ section.settings.panel_title }}</strong>
         <span>{{ section.settings.panel_text }}</span>

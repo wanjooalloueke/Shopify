@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,14 +15,14 @@
         "trust_quality": {
           "type": "trust",
           "settings": {
-            "value": "Premium",
+            "value": "Qualité",
             "label": "Finitions naturelles"
           }
         },
         "trust_delivery": {
           "type": "trust",
           "settings": {
-            "value": "CI",
+            "value": "Côte-d'Ivoire",
             "label": "Livraison nationale"
           }
         },
@@ -31,7 +40,13 @@
         "trust_abidjan"
       ],
       "settings": {
+        "image": "shopify://shop_images/telecharger.jpg",
+        "eyebrow": "JD HAIR BOUTIQUE",
+        "heading": "Révélez votre beauté avec des perruques d'exception",
+        "subheading": "Des modèles tendance, naturels et élégants livrés partout en Côte d'Ivoire.",
+        "primary_label": "Découvrir la boutique",
         "primary_link": "/collections/all",
+        "secondary_label": "Voir les nouveautés",
         "secondary_link": "/collections/nouveautes"
       }
     },
@@ -41,6 +56,7 @@
         "lace": {
           "type": "category",
           "settings": {
+            "collection": "",
             "title": "Lace wigs",
             "caption": "Finitions naturelles",
             "link": "/collections/lace-wigs"
@@ -49,6 +65,7 @@
         "bob": {
           "type": "category",
           "settings": {
+            "collection": "",
             "title": "Bob & carrés",
             "caption": "Chic, léger, moderne",
             "link": "/collections/bob-carres"
@@ -57,6 +74,7 @@
         "long": {
           "type": "category",
           "settings": {
+            "collection": "",
             "title": "Longues longueurs",
             "caption": "Volume et allure",
             "link": "/collections/longues"
@@ -65,6 +83,7 @@
         "waves": {
           "type": "category",
           "settings": {
+            "collection": "",
             "title": "Ondulées",
             "caption": "Mouvement naturel",
             "link": "/collections/ondulees"
@@ -78,6 +97,9 @@
         "waves"
       ],
       "settings": {
+        "eyebrow": "Découvrez notre collection de qualité pour trouver les articles les plus populaires",
+        "heading": "Trouvez la perruque qui épouse votre style",
+        "link_label": "Tout voir",
         "link_url": "/collections/all"
       }
     },
@@ -86,6 +108,9 @@
       "settings": {
         "eyebrow": "Nouveautés",
         "heading": "Les nouveaux essentiels JD HAIR",
+        "text": "Lace, longues, lisses ou ondulées: chaque modèle est pensé pour un rendu naturel et une élégance immédiate.",
+        "collection": "",
+        "products_to_show": 8,
         "button_label": "Voir les nouveautés"
       }
     },
@@ -119,11 +144,23 @@
         "advice",
         "local"
       ],
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/telecharger_1.jpg",
+        "image_alt": "Perruque premium JD Hair",
+        "eyebrow": "La marque",
+        "heading": "Une boutique pensée pour les femmes modernes d'Abidjan",
+        "text": "JD HAIR BOUTIQUE sélectionne des perruques de qualité qui apportent confiance, élégance et liberté au quotidien. Chaque modèle met l'accent sur le naturel, le confort et la facilité d'entretien.",
+        "panel_title": "JD HAIR",
+        "panel_text": "Votre boutique à Abidjan commandez maintenant !"
+      }
     },
     "promo": {
       "type": "jd-promo-banner",
       "settings": {
+        "eyebrow": "Offres limitées",
+        "heading": "Promotions sur une sélection de modèles",
+        "text": "Profitez des prix doux sur les perruques en stock, avec livraison rapide à Abidjan et partout en Côte d'Ivoire.",
+        "button_label": "Voir les promotions",
         "button_link": "/collections/promotions"
       }
     },
@@ -165,7 +202,11 @@
         "advice",
         "secure"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Pourquoi JD HAIR",
+        "heading": "Une expérience boutique premium",
+        "text": "Un site clair, une sélection raffinée et un service client proche de vous."
+      }
     }
   },
   "order": [

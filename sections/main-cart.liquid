@@ -48,8 +48,11 @@
       <div class="cart-summary">
         <p>Sous-total</p>
         <h2>{{ cart.total_price | money }}</h2>
-        <p>Les frais de livraison et taxes éventuelles sont calculés au paiement.</p>
-        <button class="button button-full" type="submit" name="checkout">Passer au paiement</button>
+        <div class="payment-notice">
+          <strong>Paiement a la livraison</strong>
+          <p>Le paiement se fait uniquement a la livraison pour les commandes locales. Les expeditions necessitant un envoi hors zone peuvent demander le depot complet de l'article avant expedition.</p>
+        </div>
+        <a class="button button-full" href="/pages/paiement">Valider ma commande</a>
         <button class="button-secondary button-full" type="submit" name="update">Mettre à jour</button>
       </div>
     </form>

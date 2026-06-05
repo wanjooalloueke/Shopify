@@ -44,6 +44,9 @@ Dans Shopify Admin, creez ces pages et assignez le template correspondant:
 - `A Propos`, handle `a-propos`, template `page.about`
 - `FAQ`, handle `faq`, template `page.faq`
 - `Contact`, handle `contact`, template `page.contact`
+- `Paiement`, handle `paiement`, template `page.paiement`
+
+La page `/pages/paiement` est l'etape ajoutee entre le panier et le checkout Shopify. Elle rappelle que le paiement se fait uniquement a la livraison, sauf expedition qui requiert le depot complet de l'article avant envoi.
 
 ## Collections recommandees
 
@@ -73,3 +76,7 @@ Dans l'editeur Shopify:
 - Renseignez WhatsApp, telephone, email et reseaux sociaux dans les parametres du theme.
 - Selectionnez les collections a afficher sur l'accueil.
 - Ajustez les textes des sections selon les offres et stocks reels.
+
+## Reglage paiement Shopify
+
+Dans Shopify Admin, configurez le moyen de paiement manuel adapte, par exemple **Paiement a la livraison**. Le theme affiche les conditions et enregistre l'acceptation dans les attributs de commande, mais le moyen de paiement disponible dans le checkout reste gere par Shopify Admin.

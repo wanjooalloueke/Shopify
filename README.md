@@ -1,49 +1,53 @@
+# Shopify
+
+Boutique en ligne JD Hair.
+
 # JD HAIR BOUTIQUE Shopify Theme
 
-Thème Shopify Online Store 2.0 conçu pour **JD HAIR BOUTIQUE**, boutique premium de perruques à Abidjan, Côte d'Ivoire.
+Theme Shopify Online Store 2.0 concu pour **JD HAIR BOUTIQUE**, boutique premium de perruques a Abidjan, Cote d'Ivoire.
 
-## Identité intégrée
+## Identite integree
 
 - Nom: `JD HAIR BOUTIQUE`
-- Slogan: `L'élégance commence par vos cheveux.`
+- Slogan: `L'elegance commence par vos cheveux.`
 - Couleurs: noir luxe `#000000`, or premium `#D4AF37`, blanc `#FFFFFF`
 - Typographies: Playfair Display pour les titres, Poppins pour les textes
 
-## Structure du thème
+## Structure du theme
 
 - `layout/theme.liquid`: structure globale Shopify
-- `templates/*.json`: pages OS 2.0 modifiables dans l'éditeur Shopify
-- `sections/*.liquid`: sections réutilisables
-- `snippets/*.liquid`: composants courts, cartes produit, prix et icônes
+- `templates/*.json`: pages OS 2.0 modifiables dans l'editeur Shopify
+- `sections/*.liquid`: sections reutilisables
+- `snippets/*.liquid`: composants courts, cartes produit, prix et icones
 - `assets/theme.css`: design complet
 - `assets/theme.js`: menu mobile et variantes produit
-- `assets/jd-hero.png`: visuel héro par défaut
+- `assets/jd-hero.png`: visuel hero par defaut
 
-## Menu principal recommandé
+## Menu principal recommande
 
-Créez un menu Shopify avec ces entrées:
+Creez un menu Shopify avec ces entrees:
 
 - Accueil: `/`
 - Boutique: `/collections/all`
-- Nouveautés: `/collections/nouveautes`
+- Nouveautes: `/collections/nouveautes`
 - Promotions: `/collections/promotions`
-- À Propos: `/pages/a-propos`
+- A Propos: `/pages/a-propos`
 - FAQ: `/pages/faq`
 - Contact: `/pages/contact`
 
-Le thème affiche déjà ces liens en secours si aucun menu n'est configuré.
+Le theme affiche deja ces liens en secours si aucun menu n'est configure.
 
-## Pages à créer dans Shopify
+## Pages a creer dans Shopify
 
-Dans Shopify Admin, créez ces pages et assignez le template correspondant:
+Dans Shopify Admin, creez ces pages et assignez le template correspondant:
 
-- `À Propos`, handle `a-propos`, template `page.about`
+- `A Propos`, handle `a-propos`, template `page.about`
 - `FAQ`, handle `faq`, template `page.faq`
 - `Contact`, handle `contact`, template `page.contact`
 
-## Collections recommandées
+## Collections recommandees
 
-Créez au minimum:
+Creez au minimum:
 
 - `nouveautes`
 - `promotions`
@@ -52,20 +56,20 @@ Créez au minimum:
 - `longues`
 - `ondulees`
 
-Ajoutez des images de collection et des photos produit réelles pour renforcer l'effet marque premium.
+Ajoutez des images de collection et des photos produit reelles pour renforcer l'effet marque premium.
 
 ## Connexion GitHub avec Shopify
 
-1. Poussez ce dossier dans le dépôt GitHub connecté à Shopify.
+1. Poussez ce dossier dans le depot GitHub connecte a Shopify.
 2. Dans Shopify Admin, ouvrez **Online Store > Themes**.
-3. Connectez ou sélectionnez le dépôt GitHub et la branche du thème.
-4. Vérifiez l'aperçu, puis publiez quand les produits, menus et pages sont prêts.
+3. Connectez ou selectionnez le depot GitHub et la branche du theme.
+4. Verifiez l'apercu, puis publiez quand les produits, menus et pages sont prets.
 
 ## Personnalisation rapide
 
-Dans l'éditeur Shopify:
+Dans l'editeur Shopify:
 
-- Remplacez l'image héro par une vraie photo de marque.
-- Renseignez WhatsApp, téléphone, email et réseaux sociaux dans les paramètres du thème.
-- Sélectionnez les collections à afficher sur l'accueil.
-- Ajustez les textes des sections selon les offres et stocks réels.
+- Remplacez l'image hero par une vraie photo de marque.
+- Renseignez WhatsApp, telephone, email et reseaux sociaux dans les parametres du theme.
+- Selectionnez les collections a afficher sur l'accueil.
+- Ajustez les textes des sections selon les offres et stocks reels.

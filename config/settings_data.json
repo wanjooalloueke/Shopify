@@ -1,0 +1,24 @@
+{
+  "current": {
+    "brand_name": "JD HAIR BOUTIQUE",
+    "tagline": "L'élégance commence par vos cheveux.",
+    "color_black": "#000000",
+    "color_gold": "#D4AF37",
+    "color_white": "#FFFFFF",
+    "store_city": "Abidjan, Côte d'Ivoire",
+    "phone": "+225 00 00 00 00 00",
+    "email": "contact@jdhairboutique.com"
+  },
+  "presets": {
+    "JD Hair Boutique": {
+      "brand_name": "JD HAIR BOUTIQUE",
+      "tagline": "L'élégance commence par vos cheveux.",
+      "color_black": "#000000",
+      "color_gold": "#D4AF37",
+      "color_white": "#FFFFFF",
+      "store_city": "Abidjan, Côte d'Ivoire",
+      "phone": "+225 00 00 00 00 00",
+      "email": "contact@jdhairboutique.com"
+    }
+  }
+}

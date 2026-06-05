@@ -1,0 +1,89 @@
+[
+  {
+    "name": "Informations du thème",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Thème premium JD HAIR BOUTIQUE pour Shopify Online Store 2.0."
+      }
+    ]
+  },
+  {
+    "name": "Identité de marque",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Nom de marque",
+        "default": "JD HAIR BOUTIQUE"
+      },
+      {
+        "type": "text",
+        "id": "tagline",
+        "label": "Slogan",
+        "default": "L'élégance commence par vos cheveux."
+      },
+      {
+        "type": "color",
+        "id": "color_black",
+        "label": "Noir Luxe",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_gold",
+        "label": "Or Premium",
+        "default": "#D4AF37"
+      },
+      {
+        "type": "color",
+        "id": "color_white",
+        "label": "Blanc",
+        "default": "#FFFFFF"
+      }
+    ]
+  },
+  {
+    "name": "Coordonnées",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_city",
+        "label": "Ville",
+        "default": "Abidjan, Côte d'Ivoire"
+      },
+      {
+        "type": "text",
+        "id": "phone",
+        "label": "Téléphone / WhatsApp",
+        "default": "+225 00 00 00 00 00"
+      },
+      {
+        "type": "text",
+        "id": "email",
+        "label": "Email",
+        "default": "contact@jdhairboutique.com"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "facebook_url",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "whatsapp_url",
+        "label": "Lien WhatsApp"
+      }
+    ]
+  }
+]

@@ -1,0 +1,89 @@
+{%- liquid
+  assign brand_name = settings.brand_name | default: 'JD HAIR BOUTIQUE'
+  assign menu = linklists[section.settings.menu]
+-%}
+
+<header class="site-header">
+  <div class="page-width site-header__inner">
+    <a class="brand" href="{{ routes.root_url }}" aria-label="{{ brand_name | escape }}">
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 320 | image_tag: class: 'header-logo', widths: '160, 240, 320', alt: brand_name }}
+      {%- else -%}
+        <span class="brand__mark">JD</span>
+        <span class="brand__text">
+          <span class="brand__name">{{ brand_name }}</span>
+          <span class="brand__tagline">{{ settings.tagline }}</span>
+        </span>
+      {%- endif -%}
+    </a>
+
+    <nav class="nav desktop-nav" aria-label="Menu principal">
+      {%- if menu.links.size > 0 -%}
+        {%- for link in menu.links -%}
+          <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="{{ routes.root_url }}">Accueil</a>
+        <a href="/collections/all">Boutique</a>
+        <a href="/collections/nouveautes">Nouveautés</a>
+        <a href="/collections/promotions">Promotions</a>
+        <a href="/pages/a-propos">À Propos</a>
+        <a href="/pages/faq">FAQ</a>
+        <a href="/pages/contact">Contact</a>
+      {%- endif -%}
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-button search-action" href="{{ routes.search_url }}" aria-label="Rechercher">
+        {% render 'icon-search' %}
+      </a>
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="icon-button account-action" href="{{ routes.account_url }}" aria-label="Compte client">
+          {% render 'icon-user' %}
+        </a>
+      {%- endif -%}
+
+      <a class="icon-button" href="{{ routes.cart_url }}" aria-label="Panier">
+        {% render 'icon-bag' %}
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </a>
+
+      <button class="icon-button menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="MobileMenu" data-menu-toggle>
+        {% render 'icon-menu' %}
+      </button>
+    </div>
+  </div>
+
+  <div id="MobileMenu" class="mobile-nav" data-mobile-menu>
+    <nav class="page-width mobile-nav__inner" aria-label="Menu mobile">
+      {%- if menu.links.size > 0 -%}
+        {%- for link in menu.links -%}
+          <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="{{ routes.root_url }}">Accueil</a>
+        <a href="/collections/all">Boutique</a>
+        <a href="/collections/nouveautes">Nouveautés</a>
+        <a href="/collections/promotions">Promotions</a>
+        <a href="/pages/a-propos">À Propos</a>
+        <a href="/pages/faq">FAQ</a>
+        <a href="/pages/contact">Contact</a>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "En-tête",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu principal",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

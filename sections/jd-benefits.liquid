@@ -1,0 +1,104 @@
+<section class="section-spacing">
+  <div class="page-width">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="section-title">{{ section.settings.heading }}</h2>
+      </div>
+      {%- if section.settings.text != blank -%}
+        <p class="section-text">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="benefit-grid">
+      {%- for block in section.blocks -%}
+        <article class="benefit-card" {{ block.shopify_attributes }}>
+          <div class="benefit-card__icon">{% render 'icon-sparkle' %}</div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Engagements",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Pourquoi JD HAIR"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Une expérience boutique premium"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Un site clair, une sélection raffinée et un service client proche de vous."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Engagement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Qualité premium"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Des modèles sélectionnés pour leur rendu naturel, leur confort et leur tenue."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Engagements",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Qualité premium",
+            "text": "Des perruques au rendu naturel et aux finitions soignées."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Livraison en Côte d'Ivoire",
+            "text": "Un service pensé pour Abidjan et les autres villes du pays."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Conseils personnalisés",
+            "text": "Aide au choix de la longueur, de la texture et de l'entretien."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "title": "Paiement sécurisé",
+            "text": "Un parcours d'achat professionnel et rassurant."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

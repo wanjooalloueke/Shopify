@@ -1,0 +1,80 @@
+{%- liquid
+  assign brand_name = settings.brand_name | default: 'JD HAIR BOUTIQUE'
+  assign footer_menu = linklists[section.settings.footer_menu]
+-%}
+
+<footer class="site-footer">
+  <div class="page-width">
+    <div class="footer-grid">
+      <div>
+        <h2>{{ brand_name }}</h2>
+        <p>{{ settings.tagline }}</p>
+        <p>{{ section.settings.description }}</p>
+      </div>
+
+      <div>
+        <h3>Explorer</h3>
+        <nav class="footer-links" aria-label="Liens de pied de page">
+          {%- if footer_menu.links.size > 0 -%}
+            {%- for link in footer_menu.links -%}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {%- endfor -%}
+          {%- else -%}
+            <a href="/collections/all">Boutique</a>
+            <a href="/collections/nouveautes">Nouveautés</a>
+            <a href="/collections/promotions">Promotions</a>
+            <a href="/pages/faq">FAQ</a>
+          {%- endif -%}
+        </nav>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>{{ settings.store_city }}</p>
+        <p><a href="tel:{{ settings.phone | remove: ' ' }}">{{ settings.phone }}</a></p>
+        <p><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></p>
+        <div class="footer-links">
+          {%- if settings.instagram_url != blank -%}<a href="{{ settings.instagram_url }}">Instagram</a>{%- endif -%}
+          {%- if settings.facebook_url != blank -%}<a href="{{ settings.facebook_url }}">Facebook</a>{%- endif -%}
+          {%- if settings.whatsapp_url != blank -%}<a href="{{ settings.whatsapp_url }}">WhatsApp</a>{%- endif -%}
+        </div>
+      </div>
+
+      <div>
+        <h3>Newsletter</h3>
+        <p>Recevez les nouveautés, conseils d'entretien et offres JD HAIR.</p>
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <label class="visually-hidden" for="NewsletterEmail">Email</label>
+          <input id="NewsletterEmail" type="email" name="contact[email]" placeholder="Votre email" required>
+          <button class="button" type="submit">OK</button>
+        {% endform %}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ brand_name }}. Tous droits réservés.</span>
+      <span>Abidjan, Côte d'Ivoire</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pied de page",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Menu du pied de page",
+      "default": "footer"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Perruques premium, finitions naturelles et accompagnement beauté pour femmes modernes en Côte d'Ivoire."
+    }
+  ]
+}
+{% endschema %}

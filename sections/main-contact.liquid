@@ -1,0 +1,83 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="page-title">{{ section.settings.heading }}</h1>
+    <p class="page-subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+</section>
+
+<section class="page-width contact-layout">
+  <div>
+    {% form 'contact', class: 'form-grid' %}
+      {%- if form.posted_successfully? -%}
+        <p class="field-full">Merci, votre message a bien été envoyé.</p>
+      {%- endif -%}
+
+      {%- if form.errors -%}
+        <div class="field-full">
+          {{ form.errors | default_errors }}
+        </div>
+      {%- endif -%}
+
+      <div class="field">
+        <label for="ContactName">Nom</label>
+        <input id="ContactName" type="text" name="contact[name]" autocomplete="name" required>
+      </div>
+
+      <div class="field">
+        <label for="ContactPhone">Téléphone</label>
+        <input id="ContactPhone" type="tel" name="contact[phone]" autocomplete="tel">
+      </div>
+
+      <div class="field field-full">
+        <label for="ContactEmail">Email</label>
+        <input id="ContactEmail" type="email" name="contact[email]" autocomplete="email" required>
+      </div>
+
+      <div class="field field-full">
+        <label for="ContactMessage">Message</label>
+        <textarea id="ContactMessage" name="contact[body]" rows="7" required></textarea>
+      </div>
+
+      <div class="field-full">
+        <button class="button" type="submit">Envoyer le message</button>
+      </div>
+    {% endform %}
+  </div>
+
+  <aside class="contact-card">
+    <h2>{{ settings.brand_name }}</h2>
+    <p>{{ settings.store_city }}</p>
+    <p><a href="tel:{{ settings.phone | remove: ' ' }}">{{ settings.phone }}</a></p>
+    <p><a href="mailto:{{ settings.email }}">{{ settings.email }}</a></p>
+    {%- if settings.whatsapp_url != blank -%}
+      <a class="button" href="{{ settings.whatsapp_url }}">Écrire sur WhatsApp</a>
+    {%- endif -%}
+  </aside>
+</section>
+
+{% schema %}
+{
+  "name": "Contact JD",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Contact"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Besoin d'un conseil pour choisir votre perruque ?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Laissez un message à JD HAIR BOUTIQUE pour une question produit, une livraison ou une demande personnalisée."
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="page-title">{{ section.settings.heading }}</h1>
+    <p class="page-subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+</section>
+
+<section class="section-spacing">
+  <div class="page-width brand-story">
+    <div class="rich-text">
+      <p class="section-eyebrow">{{ settings.brand_name }}</p>
+      <h2 class="section-title">{{ section.settings.story_heading }}</h2>
+      <p>{{ section.settings.story_text }}</p>
+    </div>
+
+    <div class="values-grid">
+      {%- for block in section.blocks -%}
+        <article class="value-card" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "À propos JD",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "À propos"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "JD HAIR BOUTIQUE, l'adresse premium des perruques à Abidjan"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sous-titre",
+      "default": "Une boutique spécialisée dans les perruques premium pour femmes modernes en Côte d'Ivoire."
+    },
+    {
+      "type": "text",
+      "id": "story_heading",
+      "label": "Titre histoire",
+      "default": "L'élégance commence par vos cheveux."
+    },
+    {
+      "type": "textarea",
+      "id": "story_text",
+      "label": "Texte histoire",
+      "default": "JD HAIR BOUTIQUE est née avec une ambition simple: offrir aux femmes une expérience d'achat élégante, rassurante et moderne autour des perruques premium. Notre sélection met en avant le naturel, le confort et l'allure, avec un service adapté au quotidien en Côte d'Ivoire."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Valeur",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Sélection raffinée"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte",
+          "default": "Chaque modèle est choisi pour son rendu, sa finition et sa capacité à sublimer le visage."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "À propos JD",
+      "blocks": [
+        {
+          "type": "value",
+          "settings": {
+            "title": "Sélection raffinée",
+            "text": "Des textures et longueurs adaptées aux styles modernes."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Proximité locale",
+            "text": "Un service pensé pour Abidjan et les clientes en Côte d'Ivoire."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Conseil beauté",
+            "text": "Un accompagnement dans le choix et l'entretien de chaque perruque."
+          }
+        },
+        {
+          "type": "value",
+          "settings": {
+            "title": "Image premium",
+            "text": "Une marque en ligne claire, élégante et digne de confiance."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

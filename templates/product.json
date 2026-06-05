@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "delivery": {
+          "type": "accordion",
+          "settings": {
+            "title": "Livraison",
+            "text": "<p>Livraison possible à Abidjan et partout en Côte d'Ivoire selon les disponibilités.</p>"
+          }
+        },
+        "care": {
+          "type": "accordion",
+          "settings": {
+            "title": "Conseils d'entretien",
+            "text": "<p>Démêlez délicatement, utilisez des soins doux et rangez votre perruque à l'abri de l'humidité.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "delivery",
+        "care"
+      ],
+      "settings": {}
+    },
+    "benefits": {
+      "type": "jd-benefits",
+      "settings": {
+        "heading": "Acheter chez JD HAIR"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "benefits"
+  ]
+}

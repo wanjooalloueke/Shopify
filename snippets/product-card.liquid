@@ -1,0 +1,48 @@
+{%- liquid
+  assign card_product = product
+  assign first_variant = card_product.selected_or_first_available_variant
+  assign card_image_alt = card_product.featured_media.alt | default: card_product.title
+-%}
+
+<article class="product-card">
+  <a class="product-card__link" href="{{ card_product.url | within: collection }}" aria-label="{{ card_product.title | escape }}">
+    <div class="product-card__media">
+      {%- if card_product.featured_media -%}
+        {{
+          card_product.featured_media
+          | image_url: width: 720
+          | image_tag:
+            loading: 'lazy',
+            widths: '360, 540, 720',
+            sizes: '(min-width: 990px) 25vw, (min-width: 680px) 50vw, 100vw',
+            alt: card_image_alt
+        }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+
+      {%- if card_product.compare_at_price > card_product.price -%}
+        <span class="product-card__badge">Promo</span>
+      {%- elsif card_product.tags contains 'Nouveauté' or card_product.tags contains 'nouveaute' -%}
+        <span class="product-card__badge">Nouveau</span>
+      {%- endif -%}
+    </div>
+
+    <div class="product-card__info">
+      {%- if card_product.vendor != blank -%}
+        <p class="product-card__vendor">{{ card_product.vendor }}</p>
+      {%- endif -%}
+      <h3 class="product-card__title">{{ card_product.title }}</h3>
+      {% render 'price', product: card_product %}
+    </div>
+  </a>
+
+  {%- if first_variant and first_variant.available -%}
+    <div class="quick-add">
+      {% form 'product', card_product %}
+        <input type="hidden" name="id" value="{{ first_variant.id }}">
+        <button class="button" type="submit">Ajouter</button>
+      {% endform %}
+    </div>
+  {%- endif -%}
+</article>

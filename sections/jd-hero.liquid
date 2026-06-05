@@ -1,0 +1,137 @@
+{%- liquid
+  if section.settings.image != blank
+    assign hero_image = section.settings.image | image_url: width: 2400
+  else
+    assign hero_image = 'jd-hero.png' | asset_url
+  endif
+-%}
+
+<section class="hero" style="--hero-image: url('{{ hero_image }}');">
+  <div class="page-width hero__inner">
+    <div class="hero__content">
+      <p class="hero__eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <p>{{ section.settings.subheading }}</p>
+
+      <div class="hero__actions">
+        {%- if section.settings.primary_label != blank -%}
+          <a class="button" href="{{ section.settings.primary_link | default: '/collections/all' }}">{{ section.settings.primary_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.secondary_label != blank -%}
+          <a class="button-secondary" href="{{ section.settings.secondary_link | default: '/collections/nouveautes' }}">{{ section.settings.secondary_label }}</a>
+        {%- endif -%}
+      </div>
+
+      <div class="hero__trust">
+        {%- for block in section.blocks -%}
+          <div class="hero__trust-item" {{ block.shopify_attributes }}>
+            <strong>{{ block.settings.value }}</strong>
+            <span>{{ block.settings.label }}</span>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Héro JD Hair",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image héro"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "JD HAIR BOUTIQUE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Révélez votre beauté avec des perruques d'exception"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Sous-titre",
+      "default": "Des modèles tendance, naturels et élégants livrés partout en Côte d'Ivoire."
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Bouton principal",
+      "default": "Découvrir la boutique"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Lien principal",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Bouton secondaire",
+      "default": "Voir les nouveautés"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Lien secondaire"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "Preuve de confiance",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Valeur",
+          "default": "Abidjan"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texte",
+          "default": "Conseils et retrait local"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Héro JD Hair",
+      "blocks": [
+        {
+          "type": "trust",
+          "settings": {
+            "value": "Premium",
+            "label": "Finitions naturelles"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "value": "CI",
+            "label": "Livraison nationale"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "value": "JD",
+            "label": "Accompagnement beauté"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

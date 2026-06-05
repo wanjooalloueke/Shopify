@@ -1,0 +1,18 @@
+{
+  "general": {
+    "search": {
+      "placeholder": "Rechercher une perruque",
+      "submit": "Rechercher"
+    },
+    "cart": {
+      "title": "Votre panier",
+      "empty": "Votre panier est vide."
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Ajouter au panier",
+      "sold_out": "Indisponible"
+    }
+  }
+}

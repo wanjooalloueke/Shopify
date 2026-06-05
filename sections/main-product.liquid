@@ -1,0 +1,154 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign featured_image = product.featured_media.preview_image | default: product.featured_image
+-%}
+
+<section class="page-width product-layout">
+  <div class="product-media">
+    <div class="product-media__main">
+      {%- if featured_image != blank -%}
+        {{ featured_image | image_url: width: 1400 | image_tag: widths: '720, 1000, 1400', sizes: '(min-width: 990px) 55vw, 100vw', alt: product.title }}
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+
+    {%- if product.media.size > 1 -%}
+      <div class="product-gallery">
+        {%- for media in product.media limit: 8 -%}
+          {%- if media.preview_image -%}
+            {%- assign media_alt = media.alt | default: product.title -%}
+            {{ media.preview_image | image_url: width: 320 | image_tag: loading: 'lazy', widths: '160, 240, 320', sizes: '25vw', alt: media_alt }}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="product-summary">
+    <p class="product-eyebrow">{{ product.vendor | default: settings.brand_name }}</p>
+    <h1 class="product-title">{{ product.title }}</h1>
+
+    <div class="product-price">
+      {% render 'price', product: product %}
+    </div>
+
+    {%- if product.description != blank -%}
+      <div class="product-description">{{ product.description }}</div>
+    {%- endif -%}
+
+    {% form 'product', product, class: 'product-form', data-product-form: product.id %}
+      <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+      {%- unless product.has_only_default_variant -%}
+        {%- for option in product.options_with_values -%}
+          <fieldset class="variant-fieldset" data-option-index="{{ forloop.index0 }}">
+            <legend>{{ option.name }}</legend>
+            <div class="variant-options">
+              {%- for value in option.values -%}
+                <label class="variant-pill">
+                  <input
+                    type="radio"
+                    name="option{{ option.position }}"
+                    value="{{ value | escape }}"
+                    {% if option.selected_value == value %}checked{% endif %}
+                    data-option-value
+                  >
+                  <span>{{ value }}</span>
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      {%- endunless -%}
+
+      <div class="product-form__actions">
+        <div class="quantity-row">
+          <label class="visually-hidden" for="Quantity-{{ section.id }}">Quantité</label>
+          <input id="Quantity-{{ section.id }}" class="quantity-input" type="number" name="quantity" value="1" min="1">
+          <button
+            class="button button-full"
+            type="submit"
+            {% unless current_variant.available %}disabled{% endunless %}
+            data-add-to-cart
+            data-available-text="Ajouter au panier"
+            data-sold-out-text="Indisponible"
+          >
+            {%- if current_variant.available -%}Ajouter au panier{%- else -%}Indisponible{%- endif -%}
+          </button>
+        </div>
+        {{ form | payment_button }}
+      </div>
+
+      <script type="application/json" data-product-json>
+        {{ product.variants | json }}
+      </script>
+    {% endform %}
+
+    <ul class="product-services">
+      <li>Livraison disponible en Côte d'Ivoire</li>
+      <li>Conseils avant achat via les canaux de contact JD HAIR</li>
+      <li>Finitions pensées pour un rendu naturel</li>
+    </ul>
+
+    <div class="accordion">
+      {%- for block in section.blocks -%}
+        <details {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.title }}</summary>
+          <div class="accordion__content">{{ block.settings.text }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+  {{ product | structured_data }}
+</script>
+
+{% schema %}
+{
+  "name": "Produit JD",
+  "blocks": [
+    {
+      "type": "accordion",
+      "name": "Information",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Livraison"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texte",
+          "default": "<p>Livraison possible à Abidjan et dans les autres villes selon les modalités de commande.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produit JD",
+      "blocks": [
+        {
+          "type": "accordion",
+          "settings": {
+            "title": "Livraison",
+            "text": "<p>Livraison possible à Abidjan et partout en Côte d'Ivoire selon les disponibilités.</p>"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "title": "Conseils d'entretien",
+            "text": "<p>Démêlez délicatement, utilisez des soins doux et rangez votre perruque à l'abri de l'humidité.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,63 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="page-title">Recherche</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="form-grid" style="margin-top: 24px;">
+      <input type="hidden" name="type" value="product">
+      <input type="hidden" name="options[prefix]" value="last">
+      <div class="field field-full">
+        <label class="visually-hidden" for="SearchInput">Rechercher</label>
+        <input id="SearchInput" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Rechercher une perruque">
+      </div>
+      <button class="button" type="submit">Rechercher</button>
+    </form>
+  </div>
+</section>
+
+<section class="collection-grid-wrap">
+  <div class="page-width">
+    {%- if search.performed -%}
+      <div class="section-header">
+        <div>
+          <p class="section-eyebrow">Résultats</p>
+          <h2 class="section-title">{{ search.results_count }} résultat{% unless search.results_count == 1 %}s{% endunless %}</h2>
+        </div>
+      </div>
+
+      {%- paginate search.results by 24 -%}
+        <div class="product-grid">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}
+              {% render 'product-card', product: item %}
+            {%- endif -%}
+          {%- else -%}
+            <div class="empty-state">
+              <h2>Aucun résultat</h2>
+              <p>Essayez une autre texture, longueur ou catégorie.</p>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" role="navigation" aria-label="Pagination">
+            {{ paginate | default_pagination }}
+          </nav>
+        {%- endif -%}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Recherche",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Trouver votre style"
+    }
+  ]
+}
+{% endschema %}

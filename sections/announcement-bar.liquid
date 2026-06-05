@@ -1,0 +1,31 @@
+{%- if section.settings.text != blank -%}
+  <div class="announcement">
+    <div class="page-width announcement__inner">
+      <span>{{ section.settings.text }}</span>
+      {%- if section.settings.secondary_text != blank -%}
+        <span class="announcement__dot" aria-hidden="true"></span>
+        <span>{{ section.settings.secondary_text }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Barre d'annonce",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texte principal",
+      "default": "Livraison partout en Côte d'Ivoire"
+    },
+    {
+      "type": "text",
+      "id": "secondary_text",
+      "label": "Texte secondaire",
+      "default": "Retrait et conseils personnalisés à Abidjan"
+    }
+  ]
+}
+{% endschema %}

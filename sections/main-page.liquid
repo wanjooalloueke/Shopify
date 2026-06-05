@@ -1,0 +1,26 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="page-title">{{ page.title }}</h1>
+  </div>
+</section>
+
+<section class="section-spacing">
+  <div class="page-width rich-text">
+    {{ page.content }}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page standard",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "JD HAIR BOUTIQUE"
+    }
+  ]
+}
+{% endschema %}

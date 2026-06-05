@@ -1,0 +1,179 @@
+{
+  "sections": {
+    "hero": {
+      "type": "jd-hero",
+      "blocks": {
+        "trust_quality": {
+          "type": "trust",
+          "settings": {
+            "value": "Premium",
+            "label": "Finitions naturelles"
+          }
+        },
+        "trust_delivery": {
+          "type": "trust",
+          "settings": {
+            "value": "CI",
+            "label": "Livraison nationale"
+          }
+        },
+        "trust_abidjan": {
+          "type": "trust",
+          "settings": {
+            "value": "Abidjan",
+            "label": "Conseils personnalisés"
+          }
+        }
+      },
+      "block_order": [
+        "trust_quality",
+        "trust_delivery",
+        "trust_abidjan"
+      ],
+      "settings": {
+        "primary_link": "/collections/all",
+        "secondary_link": "/collections/nouveautes"
+      }
+    },
+    "categories": {
+      "type": "jd-category-showcase",
+      "blocks": {
+        "lace": {
+          "type": "category",
+          "settings": {
+            "title": "Lace wigs",
+            "caption": "Finitions naturelles",
+            "link": "/collections/lace-wigs"
+          }
+        },
+        "bob": {
+          "type": "category",
+          "settings": {
+            "title": "Bob & carrés",
+            "caption": "Chic, léger, moderne",
+            "link": "/collections/bob-carres"
+          }
+        },
+        "long": {
+          "type": "category",
+          "settings": {
+            "title": "Longues longueurs",
+            "caption": "Volume et allure",
+            "link": "/collections/longues"
+          }
+        },
+        "waves": {
+          "type": "category",
+          "settings": {
+            "title": "Ondulées",
+            "caption": "Mouvement naturel",
+            "link": "/collections/ondulees"
+          }
+        }
+      },
+      "block_order": [
+        "lace",
+        "bob",
+        "long",
+        "waves"
+      ],
+      "settings": {
+        "link_url": "/collections/all"
+      }
+    },
+    "featured": {
+      "type": "jd-featured-collection",
+      "settings": {
+        "eyebrow": "Nouveautés",
+        "heading": "Les nouveaux essentiels JD HAIR",
+        "button_label": "Voir les nouveautés"
+      }
+    },
+    "story": {
+      "type": "jd-brand-story",
+      "blocks": {
+        "natural": {
+          "type": "point",
+          "settings": {
+            "title": "Rendu naturel",
+            "text": "Textures, volumes et finitions pensés pour sublimer sans effort."
+          }
+        },
+        "advice": {
+          "type": "point",
+          "settings": {
+            "title": "Conseil personnalisé",
+            "text": "Aide au choix de la coupe, de la longueur et de l'entretien adaptés."
+          }
+        },
+        "local": {
+          "type": "point",
+          "settings": {
+            "title": "Service local",
+            "text": "Livraison en Côte d'Ivoire et proximité avec la clientèle d'Abidjan."
+          }
+        }
+      },
+      "block_order": [
+        "natural",
+        "advice",
+        "local"
+      ],
+      "settings": {}
+    },
+    "promo": {
+      "type": "jd-promo-banner",
+      "settings": {
+        "button_link": "/collections/promotions"
+      }
+    },
+    "benefits": {
+      "type": "jd-benefits",
+      "blocks": {
+        "quality": {
+          "type": "benefit",
+          "settings": {
+            "title": "Qualité premium",
+            "text": "Des perruques au rendu naturel et aux finitions soignées."
+          }
+        },
+        "delivery": {
+          "type": "benefit",
+          "settings": {
+            "title": "Livraison en Côte d'Ivoire",
+            "text": "Un service pensé pour Abidjan et les autres villes du pays."
+          }
+        },
+        "advice": {
+          "type": "benefit",
+          "settings": {
+            "title": "Conseils personnalisés",
+            "text": "Aide au choix de la longueur, de la texture et de l'entretien."
+          }
+        },
+        "secure": {
+          "type": "benefit",
+          "settings": {
+            "title": "Paiement sécurisé",
+            "text": "Un parcours d'achat professionnel et rassurant."
+          }
+        }
+      },
+      "block_order": [
+        "quality",
+        "delivery",
+        "advice",
+        "secure"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "categories",
+    "featured",
+    "story",
+    "promo",
+    "benefits"
+  ]
+}

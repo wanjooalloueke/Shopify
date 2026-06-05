@@ -1,0 +1,96 @@
+{%- liquid
+  assign featured_collection = section.settings.collection
+  assign products_limit = section.settings.products_to_show
+  if featured_collection == blank
+    assign featured_collection = collections.all
+  endif
+-%}
+
+<section class="section-spacing">
+  <div class="page-width">
+    <div class="section-header">
+      <div>
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="section-title">{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}
+          <p class="section-text">{{ section.settings.text }}</p>
+        {%- endif -%}
+      </div>
+      {%- if featured_collection != blank -%}
+        <a class="button-secondary" href="{{ featured_collection.url }}">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="product-grid">
+      {%- if featured_collection.products_count > 0 -%}
+        {%- for product in featured_collection.products limit: products_limit -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..4) -%}
+          <article class="product-card">
+            <div class="product-card__media">
+              {{ 'product-' | append: i | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+            <div class="product-card__info">
+              <p class="product-card__vendor">JD HAIR</p>
+              <h3 class="product-card__title">Perruque premium {{ i }}</h3>
+              <div class="price"><span>À partir de 45 000 FCFA</span></div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection mise en avant",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Nos coups de coeur"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Des perruques premium choisies pour vous"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Lace, longues, lisses ou ondulées: chaque modèle est pensé pour un rendu naturel et une élégance immédiate."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "label": "Nombre de produits",
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton",
+      "default": "Voir la collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection mise en avant"
+    }
+  ]
+}
+{% endschema %}

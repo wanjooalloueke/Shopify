@@ -1,0 +1,32 @@
+<section class="page-width empty-state">
+  <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+  <h1 class="page-title">{{ section.settings.heading }}</h1>
+  <p class="page-subtitle">{{ section.settings.text }}</p>
+  <a class="button" href="{{ routes.root_url }}">Retour à l'accueil</a>
+</section>
+
+{% schema %}
+{
+  "name": "Page 404",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Page introuvable"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Cette page n'existe plus"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Retournez à la boutique pour découvrir les perruques JD HAIR."
+    }
+  ]
+}
+{% endschema %}

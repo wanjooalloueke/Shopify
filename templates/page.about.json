@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-about",
+      "settings": {}
+    },
+    "benefits": {
+      "type": "jd-benefits",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "benefits"
+  ]
+}

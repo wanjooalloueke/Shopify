@@ -1,0 +1,77 @@
+<section class="page-hero">
+  <div class="page-width">
+    <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    <h1 class="page-title">Votre panier</h1>
+  </div>
+</section>
+
+<section class="page-width cart-layout">
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for item in cart.items -%}
+            <tr>
+              <td>
+                <div class="cart-item">
+                  {%- if item.image -%}
+                    {{ item.image | image_url: width: 220 | image_tag: loading: 'lazy', widths: '110, 160, 220', alt: item.product.title }}
+                  {%- endif -%}
+                  <div>
+                    <a href="{{ item.url }}"><strong>{{ item.product.title }}</strong></a>
+                    {%- unless item.product.has_only_default_variant -%}
+                      <p>{{ item.variant.title }}</p>
+                    {%- endunless -%}
+                    <a href="{{ item.url_to_remove }}">Retirer</a>
+                  </div>
+                </div>
+              </td>
+              <td>{{ item.final_price | money }}</td>
+              <td>
+                <label class="visually-hidden" for="updates_{{ item.key }}">Quantité</label>
+                <input id="updates_{{ item.key }}" class="quantity-input" type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+              </td>
+              <td>{{ item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+
+      <div class="cart-summary">
+        <p>Sous-total</p>
+        <h2>{{ cart.total_price | money }}</h2>
+        <p>Les frais de livraison et taxes éventuelles sont calculés au paiement.</p>
+        <button class="button button-full" type="submit" name="checkout">Passer au paiement</button>
+        <button class="button-secondary button-full" type="submit" name="update">Mettre à jour</button>
+      </div>
+    </form>
+  {%- else -%}
+    <div class="empty-state">
+      <h2>Votre panier est vide.</h2>
+      <p>Découvrez les perruques premium JD HAIR BOUTIQUE.</p>
+      <a class="button" href="/collections/all">Aller à la boutique</a>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Panier",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Commande"
+    }
+  ]
+}
+{% endschema %}

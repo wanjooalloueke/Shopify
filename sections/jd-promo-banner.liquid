@@ -1,0 +1,54 @@
+<section class="promo-band section-spacing">
+  <div class="page-width promo-band__inner">
+    <div>
+      <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+    </div>
+    {%- if section.settings.button_label != blank -%}
+      <a class="button" href="{{ section.settings.button_link | default: '/collections/promotions' }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bannière promotion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Accroche",
+      "default": "Offres limitées"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Promotions sur une sélection de modèles"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Texte",
+      "default": "Profitez des prix doux sur les perruques en stock, avec livraison rapide à Abidjan et partout en Côte d'Ivoire."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Bouton",
+      "default": "Voir les promotions"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bannière promotion"
+    }
+  ]
+}
+{% endschema %}
